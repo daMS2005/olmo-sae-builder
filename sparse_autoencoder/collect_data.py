@@ -33,7 +33,7 @@ def env_path(name: str, default: Path) -> Path:
 
 
 # Anchor defaults to the repository root so collection works from any cwd.
-REPO_ROOT = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = env_path("SAE_DATA_ROOT", REPO_ROOT / "data")
 MODELS_ROOT = env_path("SAE_MODELS_ROOT", REPO_ROOT / "models")
 MODEL_PATH = env_path(

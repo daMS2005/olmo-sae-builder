@@ -20,7 +20,7 @@ def env_path(name: str, default: Path) -> Path:
 
 
 # Anchor defaults to the repository root so this works from any shell directory.
-REPO_ROOT = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 MODEL_REPO_ID = os.environ.get("OLMO_MODEL_REPO_ID", "allenai/Olmo-3-7B-Think")
 MODELS_ROOT = env_path("SAE_MODELS_ROOT", REPO_ROOT / "models")
 MODEL_DIR = env_path(

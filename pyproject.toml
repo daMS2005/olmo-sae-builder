@@ -1,12 +1,13 @@
 [project]
 name = "sparse_autoencoder"
-description="Sparse autoencoder for GPT2"
+description = "Readable OLMo-3-7B-Think sparse autoencoder training pipeline"
 version = "0.1"
-authors = [{name = "OpenAI"}]
+authors = [{name = "Daniel Mora"}]
 dependencies = [
-    "blobfile == 2.0.2",
-    "torch == 2.1.0",
-    "transformer_lens == 1.9.1",
+    "huggingface_hub",
+    "pyarrow",
+    "torch",
+    "transformers",
 ]
 readme = "README.md"
 

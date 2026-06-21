@@ -1,13 +1,13 @@
 """Compute and cache the current layer's pre_bias for SAE training.
 
-Run this once after collecting activations. Future runner.py launches load the
+Run this once after collecting activations. Future train.py launches load the
 small cache file instead of rescanning all activation chunks.
 """
 
 import torch
 
-import sparse_autoencoder.sparse_autoencoder.model as model
-from sparse_autoencoder.sparse_autoencoder.runner import (
+import sparse_autoencoder.model as model
+from sparse_autoencoder.train import (
     ACTS_DIR,
     LAYER,
     N_INPUTS,
@@ -19,7 +19,7 @@ from sparse_autoencoder.sparse_autoencoder.runner import (
 
 
 def compute_pre_bias() -> tuple[torch.Tensor, dict[str, object]]:
-    """Average activations in the same space runner.py will encode."""
+    """Average activations in the same space train.py will encode."""
     files = activation_files()
     activation_sum = torch.zeros(N_INPUTS, dtype=torch.float64)
     n_tokens = 0
