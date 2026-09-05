@@ -63,8 +63,8 @@ SEED = 0
 MODEL_DTYPE = torch.bfloat16
 SAVE_DTYPE = torch.float16
 
-# Leave as None for the real run. Set to a small number, e.g. 20_000, when you
-# want to smoke-test the whole pipeline without collecting a large activation set.
+# None disables the token limit. A small value, such as 20_000, enables a
+# pipeline smoke test without collecting a large activation set.
 MAX_ACTIVATION_TOKENS: int | None = None
 
 DOLMA_REPO_ID = "allenai/dolma"

@@ -1,8 +1,8 @@
 """Download OLMo-3-7B-Think directly onto the machine that will run training.
 
-Use this on the Google VM instead of copying the model from your laptop. The
-collector expects the model to live under the repo's `models/` folder by
-default, so this helper downloads the Hugging Face repo into that local folder.
+Download the Hugging Face model repository directly to the training machine.
+The default destination is under the repository's `models/` folder, matching
+the activation collector's default model path.
 """
 
 from __future__ import annotations
@@ -28,9 +28,9 @@ MODEL_DIR = env_path(
     env_path("SAE_MODEL_DIR", MODELS_ROOT / "Olmo-3-7B-Think"),
 )
 
-# These are the files that matter for `AutoTokenizer.from_pretrained` and
-# `AutoModelForCausalLM.from_pretrained`. If they are present and non-empty, the
-# VM already has the model and we do not need to download the huge weights again.
+# Required files for `AutoTokenizer.from_pretrained` and
+# `AutoModelForCausalLM.from_pretrained`. Existing non-empty files allow the
+# downloader to reuse the local model snapshot.
 REQUIRED_FILES = [
     "config.json",
     "generation_config.json",

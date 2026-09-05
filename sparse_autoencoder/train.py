@@ -148,9 +148,9 @@ def save_checkpoint(
 ) -> None:
     """Save enough state to keep training later instead of starting over.
 
-    `file_index` records how far through the activation-file list we were when
-    this checkpoint was written. The trainer does not auto-resume yet, but this
-    metadata makes the checkpoint useful when we add resume or load it manually.
+    `file_index` records progress through the activation-file list when the
+    checkpoint was written. The trainer does not automatically resume from
+    checkpoints; the saved metadata supports manual restoration.
     """
     checkpoint = {
         "epoch": epoch,
